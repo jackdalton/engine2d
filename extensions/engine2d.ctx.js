@@ -1,5 +1,5 @@
 /*global Engine2D*/
-(function() {
+;(function() {
     if (typeof Engine2D == "undefined") throw new Error("engine2d.js must be included before engine2d.ctx.js");
     /**
      * Engine2D canvas renderer constructor
