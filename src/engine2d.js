@@ -16,6 +16,9 @@ var Engine2D = {
     GameScene: function() {
         var self = this;
         self.objects = {};
+        /**
+         * Adds game object to scene.
+         */
         self.addObject = function(gameObject) {
             var pass;
             for (var i in Engine2D.TYPE) {
@@ -34,6 +37,7 @@ var Engine2D = {
         var self = this;
         self.id = options.id || Engine2D.randomID();
         self.type = Engine2D.TYPE.RECT;
+        self.alive = options.alive || true;
         self.size = {}, self.position = {};
         self.size.width = options.width || 0;
         self.size.height = options.height || 0;
@@ -47,6 +51,7 @@ var Engine2D = {
         var self = this;
         self.id = options.id || Engine2D.randomID();
         self.type = Engine2D.TYPE.CIRCLE;
+        self.alive = options.alive || true;
         self.size = {}, self.position = {};
         self.size.radius = options.radius || 0;
         self.position.x = options.x || 0;

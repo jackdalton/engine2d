@@ -45,6 +45,9 @@
          * Handles rendering of any Engine2D game object.
          */
         var renderHandler = function(object) {
+            if (!object.alive) {
+                return;
+            }
             if (object.type == Engine2D.TYPE.RECT)
                 renderRect(object);
             else if (object.type == Engine2D.TYPE.CIRCLE)
