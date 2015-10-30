@@ -19,6 +19,16 @@ var Engine2D = {
         /**
          * Adds game object to scene.
          */
+        var isValidID = function(objectId) {
+            var pass;
+            for (var i in self.objects) {
+                if (self.objects[i].id == objectId) pass = true;
+            }
+            if (!!pass)
+                return true;
+            else
+                return false;
+        };
         self.addObject = function(gameObject) {
             var pass;
             for (var i in Engine2D.TYPE) {
@@ -28,6 +38,33 @@ var Engine2D = {
                 self.objects[gameObject.id] = gameObject;
             else
                 throw new TypeError("\"" + gameObject.type + "\" is not a valid Engine2D game object type.");
+        };
+        /**
+         * Disables a game object.
+         */
+        self.disableObject = function(objectId) {
+            if (isValidID(objectId))
+                self.objects[objectId].alive = false;
+            else
+                throw new ReferenceError("Object \"" + objectId + "\" either doesn't exist, or hasn't been added to the scene.");
+        };
+        /**
+         * Enables a game object.
+         */
+        self.enableObject = function(objectId) {
+            if (isValidID(objectId))
+                self.objects[objectId].alive = true;
+            else
+                throw new ReferenceError("Object \"" + objectId + "\" either doesn't exist, or hasn't been added to the scene.");
+        };
+        /**
+         * Permanently destroys a game object.
+         */
+        self.destroyObject = function(objectId) {
+            if (isValidID(objectId))
+                delete self.objects[objectId];
+            else
+                throw new ReferenceError("Object \"" + objectId + "\" either doesn't exist, or hasn't been added to the scene.");
         };
     },
     /**
