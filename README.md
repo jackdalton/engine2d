@@ -1,2 +1,2 @@
 # Engine2D
-A 2D JavaScript game engine.
+A highly extensible 2D barebones game engine.
