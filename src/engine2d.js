@@ -17,7 +17,8 @@ var Engine2D = {
         var self = this;
         self.objects = {};
         /**
-         * Adds game object to scene.
+         * Checks whether a game object ID is valid or not.
+         * Private.
          */
         var isValidID = function(objectId) {
             var pass;
@@ -29,6 +30,9 @@ var Engine2D = {
             else
                 return false;
         };
+        /**
+         * Adds game object to scene.
+         */
         self.addObject = function(gameObject) {
             var pass;
             for (var i in Engine2D.TYPE) {
