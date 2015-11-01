@@ -4,7 +4,7 @@
     "description": "A highly extensible barebones JavaScript game engine.",
     "author": "Jack Dalton <jack@jackdalton.co> (http://jackdalton.co)",
     "scripts": {
-        "test": "mocha",
+        "test": "mocha"
     },
     "main": "src/engine2d.js",
     "repository": {
