@@ -102,6 +102,7 @@ var Engine2D = {
      */
     Rect: function(options) {
         var self = this;
+        options = options || {};
         self.id = options.id || Engine2D.randomID();
         self.type = Engine2D.TYPE.RECT;
         self.alive = options.alive || true;
@@ -120,6 +121,7 @@ var Engine2D = {
      */
     Circle: function(options) {
         var self = this;
+        options = options || {};
         self.id = options.id || Engine2D.randomID();
         self.type = Engine2D.TYPE.CIRCLE;
         self.alive = options.alive || true;
@@ -143,3 +145,9 @@ var Engine2D = {
         return out;
     }
 };
+
+if (typeof module !== "undefined") {
+    module.exports = Engine2D;
+} else {
+    window.Engine2D = Engine2D;
+}
