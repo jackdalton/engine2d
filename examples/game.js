@@ -5,19 +5,30 @@
     var ctx = document.getElementById("cnv").getContext("2d");
     var renderer = new scene.Renderer(ctx);
     var keysDown = {};
-    var player = new Engine2D.Circle({
-        radius: 15,
+    var player = new Engine2D.Rect({
+        width: 100,
+        height: 100,
         id: "player",
         x: 250,
         y: 250
     });
+    var testObject = new Engine2D.Circle({
+        radius: 25,
+        id: "testObject",
+        x: 100,
+        y: 100
+    });
     scene.addObject(player);
+    scene.addObject(testObject);
     var then = Date.now();
     updateLoop();
     function updateLoop() {
         var now = Date.now();
         var delta = now - then;
         then = now;
+        if (scene.objects.player.isCollidingWith(scene.objects.testObject)) {
+            console.log("Collision!");
+        }
         (function(d) {
             if (37 in keysDown) {
                 // left
@@ -37,7 +48,7 @@
             }
         })(delta / 1000);
         renderer.clear();
-        renderer.renderObject(scene.objects.player);
+        renderer.renderObjects(scene.objects);
         window.requestAnimationFrame(updateLoop);
     }
     addEventListener("keydown", function(ev) {
