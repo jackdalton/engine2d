@@ -9,7 +9,7 @@
     "main": "src/engine2d.js",
     "repository": {
         "type": "git",
-        "url"; "https://github.com/jackdalton/engine2d"
+        "url": "https://github.com/jackdalton/engine2d"
     },
     "bugs": {
         "url": "https://github.com/jackdalton/engine2d/issues"
