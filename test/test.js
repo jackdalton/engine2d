@@ -6,6 +6,9 @@ describe("Engine2D", function() {
         it("should be object", function() {
             assert.equal(typeof new Engine2D.GameScene(), "object");
         });
+        it("should have an array of objects named `objects`", function() {
+            assert.equal(typeof new Engine2D.GameScene().objects, "object");
+        });
     });
     describe("#Rect()", function() {
         it("should be object", function() {
