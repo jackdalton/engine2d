@@ -1,8 +1,14 @@
 /*global Engine2D*/
+/**
+ * @author jackdalton
+ */
 ;(function() {
     if (typeof Engine2D == "undefined") throw new Error("engine2d.js must be included before engine2d.collision.js");
     /**
      * Rectangle collision check.
+     * 
+     * @param {object} object - Valid Engine2D game object to detect a collision with.
+     * @returns {boolean} Whether or not the parent object is colliding with the specified object.
      */
     Engine2D.Rect.prototype.isCollidingWith = function(object) {
         if (object.type == Engine2D.TYPE.RECT) {
@@ -29,6 +35,9 @@
     };
     /**
      * Circle collision check.
+     * 
+     * @param {object} object - Valid Engine2D game object to detect a collision with.
+     * @returns {boolean} Whether or not the parent object is colliding with the specified object.
      */
     Engine2D.Circle.prototype.isCollidingWith = function(object) {
         if (object.type == Engine2D.TYPE.RECT) {
