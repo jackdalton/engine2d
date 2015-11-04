@@ -20,7 +20,21 @@
     });
     scene.addObject(player);
     scene.addObject(testObject);
+    var soundPlayer = new scene.SoundPlayer("sound.wav");
     var then = Date.now();
+    console.log("play");
+    soundPlayer.playSound();
+    setTimeout(function() {
+        console.log("pause");
+        soundPlayer.pauseSound();
+        setTimeout(function() {
+            console.log(soundPlayer.getPaused());
+            console.log("unpause");
+            soundPlayer.playSound();
+            console.log("set loop");
+            soundPlayer.setLoopState(true);
+        }, 1000);
+    }, 2000);
     updateLoop();
     function updateLoop() {
         var now = Date.now();
