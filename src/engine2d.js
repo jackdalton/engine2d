@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v0.0.2
+ * Engine2D game engine v0.0.3
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -146,8 +146,4 @@ var Engine2D = {
     }
 };
 
-if (typeof module !== "undefined") {
-    module.exports = Engine2D;
-} else {
-    window.Engine2D = Engine2D;
-}
+typeof module !==  "undefined" ? module.exports = Engine2D : window.Engine2D = Engine2D;
