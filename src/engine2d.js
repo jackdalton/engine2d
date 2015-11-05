@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v0.0.3
+ * Engine2D game engine v0.0.4
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -45,15 +45,17 @@ var Engine2D = {
          *
          * @param {Object} gameObject - Valid Engine2D game object to add to scene.
          * @memberof Engine2D.GameScene
+         * @returns {string} id - ID of game object added to scene.
          */
         self.addObject = function(gameObject) {
             var pass;
             for (var i in Engine2D.TYPE) {
                 if (gameObject.type == Engine2D.TYPE[i]) pass = true;
             }
-            if (!!pass)
+            if (!!pass) {
                 self.objects[gameObject.id] = gameObject;
-            else
+                return gameObject.id;
+            } else
                 throw new TypeError("\"" + gameObject.type + "\" is not a valid Engine2D game object type.");
         };
         /**
