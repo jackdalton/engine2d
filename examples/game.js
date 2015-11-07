@@ -18,10 +18,10 @@
         x: 100,
         y: 100
     });
+    var timer = new scene.DeltaTimer();
     scene.addObject(player);
     scene.addObject(testObject);
     var soundPlayer = new scene.SoundPlayer("sound.wav");
-    var then = Date.now();
     console.log("play");
     soundPlayer.playSound();
     setTimeout(function() {
@@ -37,9 +37,7 @@
     }, 2000);
     updateLoop();
     function updateLoop() {
-        var now = Date.now();
-        var delta = now - then;
-        then = now;
+        var delta = timer.update();
         if (scene.objects.player.isCollidingWith(scene.objects.testObject)) {
             console.log("Collision!");
         }
