@@ -29,6 +29,7 @@ var Engine2D = {
         /**
          * Sets the vector position.
          *
+         * @memberof Engine2D.Vector2
          * @param {Vector2} position - Desired vector position
          */
         self.setPos = function(position) {
@@ -38,6 +39,7 @@ var Engine2D = {
         /**
          * Gets the vector x position.
          *
+         * @memberof Engine2D.Vector2
          * @returns {Number} x - Vector x position.
          */
         self.getX = function() {
@@ -46,6 +48,7 @@ var Engine2D = {
         /**
          * Gets the vector y position.
          *
+         * @memberof Engine2D.Vector2
          * @returns {Number} y - Vector y position.
          */
         self.getY = function() {
@@ -54,6 +57,7 @@ var Engine2D = {
         /**
          * Gets the full vector position.
          *
+         * @memberof Engine2D.Vector2
          * @returns {Object} position - An object containing properties `x` and `y`, representing vector positions.
          */
         self.getPos = function() {
@@ -65,6 +69,7 @@ var Engine2D = {
         /**
          * Calculates the distance to another vector position.
          *
+         * @memberof Engine2D.Vector2
          * @param {Vector2} pos - Position to calculate distance to.
          * @returns {Number} distance - Distance to other vector.
          */
@@ -74,6 +79,7 @@ var Engine2D = {
         /**
          * Finds the midpoint between this and another vector position.
          *
+         * @memberof Engine2D.Vector2
          * @param {Vector2} pos - Position to calculate midpoint for.
          * @returns {Vector2} midpoint - Midpoint between this and another vector position.
          */
@@ -83,6 +89,7 @@ var Engine2D = {
         /**
          * Performs a vector movement.
          *
+         * @memberof Engine2D.Vector2
          * @param {Number} plusX - X value to add to vector x position.
          * @param {Number} plusY - Y value to add to vector y position.
          */
