@@ -7,6 +7,6 @@ Documentation is available [here](http://jackdalton.org/engine2d/main/).
 
 # CDN
 
-Engine2D is hosted by [jsDelivr](http://www.jsdelivr.com/). The latest [minified version](https://cdn.jsdelivr.net/engine2d/latest/engine2d.min.js) and [full version](https://cdn.jsdelivr.net/engine2d/latest/engine2d.js) are both available.
+Engine2D is hosted by [jsDelivr](http://www.jsdelivr.com/projects/engine2d). The latest [minified version](https://cdn.jsdelivr.net/engine2d/latest/engine2d.min.js) and [full version](https://cdn.jsdelivr.net/engine2d/latest/engine2d.js) are both available.
 
-Alternatively, you can download both [here](https://cdn.jsdelivr.net/engine2d/latest/engine2d.zip). 
+Alternatively, you can download both [here](https://cdn.jsdelivr.net/engine2d/latest/engine2d.zip).
