@@ -1,12 +1,12 @@
 /**
- * Engine2D game engine v0.0.4
+ * Engine2D game engine v0.0.1
  * License: http://git.io/vlp11
  * @author jackdalton
  */
 
 /**
  * Engine2D namespace
- * 
+ *
  * @namespace
  */
 var Engine2D = {
@@ -15,17 +15,93 @@ var Engine2D = {
         CIRCLE: 2
     },
     /**
-     * Engine2D game scene constructor.
-     * 
+     * 2D vector constructor.
+     *
      * @constructor
-     * @this {GameScene}
+     * @param {Number} x - X position
+     * @param {Number} y - Y position
+     * @this {Vector2}
+     */
+    Vector2: function(x, y) {
+        var self = this;
+        x = x || 0;
+        y = y || 0;
+        /**
+         * Sets the vector position.
+         *
+         * @param {Vector2} position - Desired vector position
+         */
+        self.setPos = function(position) {
+            x = position.getX();
+            y = position.getY();
+        };
+        /**
+         * Gets the vector x position.
+         *
+         * @returns {Number} x - Vector x position.
+         */
+        self.getX = function() {
+            return x;
+        };
+        /**
+         * Gets the vector y position.
+         *
+         * @returns {Number} y - Vector y position.
+         */
+        self.getY = function() {
+            return y;
+        };
+        /**
+         * Gets the full vector position.
+         *
+         * @returns {Object} position - An object containing properties `x` and `y`, representing vector positions.
+         */
+        self.getPos = function() {
+            return {
+                x: x,
+                y: y
+            };
+        };
+        /**
+         * Calculates the distance to another vector position.
+         *
+         * @param {Vector2} pos - Position to calculate distance to.
+         * @returns {Number} distance - Distance to other vector.
+         */
+        self.distanceTo = function(pos) {
+            return (Math.sqrt(Math.pow(pos.getX() - x, 2) + Math.pow(pos.getY() - y, 2)));
+        };
+        /**
+         * Finds the midpoint between this and another vector position.
+         *
+         * @param {Vector2} pos - Position to calculate midpoint for.
+         * @returns {Vector2} midpoint - Midpoint between this and another vector position.
+         */
+        self.midpoint = function(pos) {
+            return new Engine2D.Vector2((x + pos.getX()) / 2, (y + pos.getY()) / 2);
+        };
+        /**
+         * Performs a vector movement.
+         *
+         * @param {Number} plusX - X value to add to vector x position.
+         * @param {Number} plusY - Y value to add to vector y position.
+         */
+        self.vectorMovement = function(plusX, plusY) {
+            x += plusX;
+            y += plusY;
+        };
+    },
+    /**
+     * Engine2D game scene constructor.
+     *
+     * @constructor
      */
     GameScene: function() {
         var self = this;
         self.objects = {};
         /**
          * Checks whether a game object ID is valid or not.
-         * 
+         *
          * @private
          * @param {string} objectId - ID to validate.
          * @returns {boolean} - Whether the generated object ID is valid or not.
@@ -60,7 +136,7 @@ var Engine2D = {
         };
         /**
          * Disables a game object.
-         * 
+         *
          * @param {string} objectId - ID of desired object in the scene to disable.
          * @memberof Engine2D.GameScene
          */
@@ -72,7 +148,7 @@ var Engine2D = {
         };
         /**
          * Enables a game object.
-         * 
+         *
          * @param {string} objectId - ID of desired object in the scene to enable.
          * @memberof Engine2D.GameScene
          */
@@ -84,7 +160,7 @@ var Engine2D = {
         };
         /**
          * Permanently destroys a game object.
-         * 
+         *
          * @param {string} objectId - ID of desired object in the scene to destroy.
          * @memberof Engine2D.GameScene
          */
@@ -97,7 +173,7 @@ var Engine2D = {
     },
     /**
      * Engine2D rectangle constructor.
-     * 
+     *
      * @constructor
      * @this {Rect}
      * @param {Object} options - An object specifying various aspects of a rectangle.
@@ -111,12 +187,11 @@ var Engine2D = {
         self.size = {}, self.position = {};
         self.size.width = options.width || 0;
         self.size.height = options.height || 0;
-        self.position.x = options.x || 0;
-        self.position.y = options.y || 0;
+        self.position = options.position || new Engine2D.Vector2(0, 0);
     },
     /**
      * Engine2D circle constructor.
-     * 
+     *
      * @constructor
      * @this {Circle}
      * @param {Object} options - An object specifying various aspects of a circle.
@@ -129,12 +204,11 @@ var Engine2D = {
         self.alive = options.alive || true;
         self.size = {}, self.position = {};
         self.size.radius = options.radius || 0;
-        self.position.x = options.x || 0;
-        self.position.y = options.y || 0;
+        self.position = options.position || new Engine2D.Vector2(0, 0);
     },
     /**
      * Used to generate random object IDs for Engine2D game objects.
-     * 
+     *
      * @returns {string} - Randomly generated object ID.
      */
     randomID: function() {

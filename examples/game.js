@@ -9,14 +9,12 @@
         width: 100,
         height: 100,
         id: "player",
-        x: 250,
-        y: 250
+        position: new Engine2D.Vector2(250, 250)
     });
     var testObject = new Engine2D.Circle({
         radius: 25,
         id: "testObject",
-        x: 100,
-        y: 100
+        position: new Engine2D.Vector2(100, 100)
     });
     var timer = new scene.DeltaTimer();
     scene.addObject(player);
@@ -44,19 +42,19 @@
         (function(d) {
             if (37 in keysDown) {
                 // left
-                scene.objects.player.position.x -= 180 * d;
+                scene.objects.player.position.vectorMovement(-(180 * d), 0);
             }
             if (38 in keysDown) {
                 // up
-                scene.objects.player.position.y -= 180 * d;
+                scene.objects.player.position.vectorMovement(0, -(180 * d));
             }
             if (39 in keysDown) {
                 // right
-                scene.objects.player.position.x += 180 * d;
+                scene.objects.player.position.vectorMovement(180 * d, 0);
             }
             if (40 in keysDown) {
                 // down
-                scene.objects.player.position.y += 180 * d;
+                scene.objects.player.position.vectorMovement(0, 180 * d);
             }
         })(delta / 1000);
         renderer.clear();

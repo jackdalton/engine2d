@@ -6,7 +6,7 @@
     if (typeof Engine2D == "undefined") throw new Error("engine2d.js must be included before engine2d.ctx.js");
     /**
      * Engine2D canvas renderer constructor.
-     * 
+     *
      * @constructor
      * @param {ctx} context - HTML5 canvas context to render objects on.
      */
@@ -36,27 +36,27 @@
         };
         /**
          * Renders a rectangle.
-         * 
+         *
          * @private
          * @param {object} rect - Valid Engine2D rectangle to render.
          */
         var renderRect = function(rect) {
-            context.fillRect(rect.position.x, rect.position.y, rect.size.width, rect.size.height);
+            context.fillRect(rect.position.getX(), rect.position.getY(), rect.size.width, rect.size.height);
         };
         /**
          * Renders a circle.
-         * 
+         *
          * @private
          * @param {object} circle - Valid Engine2D circle to render.
          */
         var renderCircle = function(circle) {
             context.beginPath();
-            context.arc(circle.position.x, circle.position.y, circle.size.radius, 0, 2 * Math.PI, false);
+            context.arc(circle.position.getX(), circle.position.getY(), circle.size.radius, 0, 2 * Math.PI, false);
             context.fill();
         };
         /**
          * Handles rendering of any valid Engine2D game object.
-         * 
+         *
          * @private
          * @param {object} object - Valid Engine2D object to render.
          */
