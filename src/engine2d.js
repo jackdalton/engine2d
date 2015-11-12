@@ -184,6 +184,11 @@ var Engine2D = {
      * @constructor
      * @this {Rect}
      * @param {Object} options - An object specifying various aspects of a rectangle.
+     * @param {string} options.id - Scene object ID.
+     * @param {boolean} options.alive - Whether the object should be active by default.
+     * @param {Number} options.width - Desired width of the object.
+     * @param {Number} options.height - Desired height of the object.
+     * @param {Vector2} options.position - Desired position of the object.
      */
     Rect: function(options) {
         var self = this;
@@ -202,6 +207,10 @@ var Engine2D = {
      * @constructor
      * @this {Circle}
      * @param {Object} options - An object specifying various aspects of a circle.
+     * @param {string} options.id - Scene object ID.
+     * @param {boolean} options.alive - Whether the object should be active by default.
+     * @param {Number} options.radius - Desired radius of the object.
+     * @param {Vector2} options.position - Desired position of the object.
      */
     Circle: function(options) {
         var self = this;
