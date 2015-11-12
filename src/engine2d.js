@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v1.0.1
+ * Engine2D game engine v1.0.3
  * License: http://git.io/vlp11
  * @author jackdalton
  */
