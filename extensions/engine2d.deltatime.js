@@ -12,7 +12,7 @@
     Engine2D.GameScene.prototype.DeltaTimer = function(autoInit) {
         autoInit = autoInit || true;
         var self = this;
-        var now = autoInit ? Date.now() : null, then, delta;
+        var now = autoInit ? performance.now() : null, then, delta;
         /**
          * Updates timer.
          * 
@@ -20,14 +20,14 @@
          */
         var updateTimer = function() {
             then = now;
-            now = Date.now();
+            now = performance.now();
             delta = now - then;
         };
         /**
          * Initializes timer.
          */
         self.init = function() {
-            now = Date.now();
+            now = performance.now();
         };
         /**
          * Updates timer.
