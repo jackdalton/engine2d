@@ -36,6 +36,17 @@ describe("Engine2D", function() {
             assert.equal(typeof new Engine2D.Circle(), "object");
         });
     });
+    describe("#nextAvailableTypeAddress()", function() {
+        var size = 0;
+        for (var i in Engine2D.TYPE) {
+            if (Engine2D.TYPE.hasOwnProperty(i)) {
+                size++;
+            }
+        }
+        it("should be one greater than length of type object (" + size + ")", function() {
+            assert.equal(Engine2D.nextAvailableTypeAddress(), size + 1);
+        });
+    });
 });
 describe("Engine2D minified", function() {
     describe("#GameScene()", function() {
@@ -57,6 +68,17 @@ describe("Engine2D minified", function() {
     describe("#Circle()", function() {
         it("should be object", function() {
             assert.equal(typeof new Engine2DM.Circle(), "object");
+        });
+    });
+    describe("#nextAvailableTypeAddress()", function() {
+        var size = 0;
+        for (var i in Engine2DM.TYPE) {
+            if (Engine2DM.TYPE.hasOwnProperty(i)) {
+                size++;
+            }
+        }
+        it("should be one greater than length of type object (" + size + ")", function() {
+            assert.equal(Engine2DM.nextAvailableTypeAddress(), size + 1);
         });
     });
 });

@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v1.0.3
+ * Engine2D game engine v1.0.4
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -235,6 +235,19 @@ var Engine2D = {
             out += opts[Math.floor(Math.random() * opts.length)];
         }
         return out;
+    },
+    /**
+     * Returns the next available type address (Engine2D.TYPE[x]).
+     * 
+     * @returns {integer} - Next available type address.
+     */
+    nextAvailableTypeAddress: function() {
+        var addr = 0;
+        for (var i in Engine2D.TYPE) {
+            addr = Engine2D.TYPE[i];
+        }
+        addr++;
+        return addr;
     }
 };
 
