@@ -8,7 +8,7 @@ Engine2D can be used for just about any type of 2D game, with existing HTML5 can
 
 Documentation is available [here](http://jackdalton.org/engine2d/main/).
 
-We have a development blog [here](http://jackdalton.org/engine2d-devblog)
+We have a development blog [here](http://jackdalton.org/engine2d-devblog).
 
 # CDN
 
