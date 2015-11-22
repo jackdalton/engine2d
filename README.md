@@ -8,6 +8,8 @@ Engine2D can be used for just about any type of 2D game, with existing HTML5 can
 
 Documentation is available [here](http://jackdalton.org/engine2d/main/).
 
+We have a development blog [here](http://jackdalton.org/engine2d-devblog)
+
 # CDN
 
 Engine2D is hosted by [jsDelivr](http://www.jsdelivr.com/projects/engine2d). The latest [minified version](https://cdn.jsdelivr.net/engine2d/latest/engine2d.min.js) and [full version](https://cdn.jsdelivr.net/engine2d/latest/engine2d.js) are both available.
