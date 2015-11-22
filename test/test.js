@@ -24,6 +24,10 @@ describe("Engine2D", function() {
             pos.setPos(new Engine2D.Vector2(5, 10));
             assert.equal(pos.getX(), 5);
             assert.equal(pos.getY(), 10);
+            pos.setX(3);
+            pos.setY(4);
+            assert.equal(pos.getX(), 3);
+            assert.equal(pos.getY(), 4);
         });
     });
     describe("#Rect()", function() {
@@ -58,6 +62,22 @@ describe("Engine2D minified", function() {
         });
         it("should not have a public function named `isValidID`", function() {
             assert.equal(typeof new Engine2DM.GameScene().isValidID, "undefined");
+        });
+    });
+    describe("#Vector2()", function() {
+        it("should have accessible coordinates", function() {
+            assert.equal(new Engine2DM.Vector2(10, 20).getX(), 10);
+            assert.equal(new Engine2DM.Vector2(10, 20).getY(), 20);
+        });
+        it("should have settable coordinates", function() {
+            var pos = new Engine2DM.Vector2(0, 0);
+            pos.setPos(new Engine2DM.Vector2(5, 10));
+            assert.equal(pos.getX(), 5);
+            assert.equal(pos.getY(), 10);
+            pos.setX(3);
+            pos.setY(4);
+            assert.equal(pos.getX(), 3);
+            assert.equal(pos.getY(), 4);
         });
     });
     describe("#Rect()", function() {
