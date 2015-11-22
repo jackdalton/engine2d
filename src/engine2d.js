@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v1.0.4
+ * Engine2D game engine v1.0.5
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -35,6 +35,24 @@ var Engine2D = {
         self.setPos = function(position) {
             x = position.getX();
             y = position.getY();
+        };
+        /**
+         * Sets the vector's X position.
+         * 
+         * @memberof Engine2D.Vector2
+         * @param {integer} value - Value of vector's X position.
+         */
+        self.setX = function(value) {
+            x = value;
+        };
+        /**
+         * Sets the vector's Y position.
+         * 
+         * @memberof Engine2D.Vector2
+         * @param {integer} value - Value of vector's Y position.
+         */
+        self.setY = function(value) {
+            y = value;
         };
         /**
          * Gets the vector x position.
