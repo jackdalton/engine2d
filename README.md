@@ -1,6 +1,7 @@
-# Engine2D [![Build Status](https://travis-ci.org/jackdalton/engine2d.svg?branch=master)](https://travis-ci.org/jackdalton/engine2d)
+# Engine2D [![Build Status](https://travis-ci.org/jackdalton/engine2d.svg?branch=master)](https://travis-ci.org/jackdalton/engine2d)[![Version](https://img.shields.io/github/release/jackdalton/engine2d.svg)](https://img.shields.io/github/release/jackdalton/engine2d.svg)[![License](https://img.shields.io/github/license/jackdalton/engine2d.svg)](https://img.shields.io/github/license/jackdalton/engine2d.svg)
 
 [![Join the chat at https://gitter.im/jackdalton/engine2d](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jackdalton/engine2d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 Engine2D is a highly extensible barebones game engine.
 
