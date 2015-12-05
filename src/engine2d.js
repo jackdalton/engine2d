@@ -129,7 +129,7 @@ var Engine2D = {
         self.objects = {};
         for (var i in Engine2D.EXTENSIONS) {
             Engine2D.EXTENSIONS[i].exec();
-            console.log("Engine2D loaded " + Engine2D.EXTENSIONS[i].extensionName + " v" + Engine2D.EXTENSIONS[i].version + ".");
+            console.log("Engine2D loaded " + Engine2D.EXTENSIONS[i].extensionName + " v" + Engine2D.EXTENSIONS[i].version + ", by " + Engine2D.EXTENSIONS[i].author + ".");
         }
         /**
          * Checks whether a game object ID is valid or not.
