@@ -7,6 +7,7 @@
     if (typeof Engine2D == "undefined") throw new Error("engine2d.js must be included before engine2d.deltatime.js");
     Engine2D.registerExtension({
         extensionName: "engine2d.deltatime.js",
+        author: "Jack Dalton",
         version: "0.0.1",
         exec: function() {
             /**
