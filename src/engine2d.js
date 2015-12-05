@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v1.0.5
+ * Engine2D game engine v1.1.0
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -10,10 +10,12 @@
  * @namespace
  */
 var Engine2D = {
+    VERSION: "1.1.0",
     TYPE: {
         RECT: 1,
         CIRCLE: 2
     },
+    EXTENSIONS: {},
     /**
      * 2D vector constructor.
      *
@@ -122,8 +124,13 @@ var Engine2D = {
      * @constructor
      */
     GameScene: function() {
+        console.log("Engine2D v" + Engine2D.VERSION + ".");
         var self = this;
         self.objects = {};
+        for (var i in Engine2D.EXTENSIONS) {
+            Engine2D.EXTENSIONS[i].exec();
+            console.log("Engine2D loaded " + Engine2D.EXTENSIONS[i].extensionName + " v" + Engine2D.EXTENSIONS[i].version + ".");
+        }
         /**
          * Checks whether a game object ID is valid or not.
          *
@@ -266,6 +273,23 @@ var Engine2D = {
         }
         addr++;
         return addr;
+    },
+    /**
+     * Engine2D extension registrar. Used to register a new Engine2D extension.
+     * 
+     * @param {Object} options - Extension properities.
+     * @param {string} options.extensionName - Name of the new extension.
+     * @param {string} options.version - Current version of the extension.
+     * @param {function} options.exec - Function to be executed on extension load. Typically this will define some prototypes to Engine2D.GameScene, or other constructors.
+     */
+    registerExtension: function(options) {
+        var ext = {};
+        options = options || {};
+        ext.id = "ext" + Engine2D.randomID();
+        ext.extensionName = options.extensionName || ext.id;
+        ext.version = options.version || "0.0.0";
+        ext.exec = options.exec || null;
+        Engine2D.EXTENSIONS[ext.id] = ext;
     }
 };
 
