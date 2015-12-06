@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v1.1.1
+ * Engine2D game engine v1.1.2
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -10,7 +10,7 @@
  * @namespace
  */
 var Engine2D = {
-    VERSION: "1.1.1",
+    VERSION: "1.1.2",
     TYPE: {
         RECT: 1,
         CIRCLE: 2
@@ -282,6 +282,7 @@ var Engine2D = {
      * @param {string} options.author - Extension author.
      * @param {string} options.version - Current version of the extension.
      * @param {function} options.exec - Function to be executed on extension load. Typically this will define some prototypes to Engine2D.GameScene, or other constructors.
+     * @returns {string} id - Extension ID.
      */
     registerExtension: function(options) {
         var ext = {};
@@ -292,6 +293,7 @@ var Engine2D = {
         ext.version = options.version || "0.0.0";
         ext.exec = options.exec || null;
         Engine2D.EXTENSIONS[ext.id] = ext;
+        return ext.id;
     }
 };
 

@@ -51,6 +51,19 @@ describe("Engine2D", function() {
             assert.equal(Engine2D.nextAvailableTypeAddress(), size + 1);
         });
     });
+    describe("#registerExtension", function() {
+        it("should exist", function() {
+            assert.equal(typeof Engine2D.registerExtension, "function");
+        });
+        it("should add a new extension", function() {
+            var ext = Engine2D.registerExtension({
+                extensionName: "Example Extension",
+                version: "0.0.0",
+                exec: function() {}
+            });
+            assert.equal(typeof Engine2D.EXTENSIONS[ext], "object");
+        });
+    });
 });
 describe("Engine2D minified", function() {
     describe("#GameScene()", function() {
@@ -99,6 +112,19 @@ describe("Engine2D minified", function() {
         }
         it("should be one greater than length of type object (" + size + ")", function() {
             assert.equal(Engine2DM.nextAvailableTypeAddress(), size + 1);
+        });
+    });
+    describe("#registerExtension", function() {
+        it("should exist", function() {
+            assert.equal(typeof Engine2DM.registerExtension, "function");
+        });
+        it("should add a new extension", function() {
+            var ext = Engine2DM.registerExtension({
+                extensionName: "Example Extension",
+                version: "0.0.0",
+                exec: function() {}
+            });
+            assert.equal(typeof Engine2DM.EXTENSIONS[ext], "object");
         });
     });
 });
