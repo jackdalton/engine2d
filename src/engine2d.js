@@ -1,30 +1,53 @@
 /**
- * Engine2D game engine v1.1.2
+ * Engine2D game engine v2.0.0
  * License: http://git.io/vlp11
  * @author jackdalton
  */
+var Engine2D = (function() {
+    "use strict";
+    var _ext = {},
+        _types = {
+            RECT: 1,
+            CIRCLE: 2
+        },
+        _version = "2.0.0",
+        _logging,
+        _isIdAvail = function(id) {
+            for (var i in _IDs) {
+                if (id == i) return false;
+            }
+            return true;
+        },
+        _randomId = function() {
+            var opts = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                out = "";
+            for (var i = 0; i < 5; i++) {
+                out += opts[Math.floor(Math.random() * opts.length)];
+            }
+            return _isIdAvail(out) ? out : _randomId();
+        },
+        _nextAvailableTypeAddress = function() {
+            var addr = 0;
+            for (var i in _types) {
+                addr = _types[i];
+            }
+            addr++;
+            return addr;
+        },
+        _IDs = {};
 
-/**
- * Engine2D namespace
- *
- * @namespace
- */
-var Engine2D = {
-    VERSION: "1.1.2",
-    TYPE: {
-        RECT: 1,
-        CIRCLE: 2
-    },
-    EXTENSIONS: {},
+    function Engine2D(logging) {
+        _logging = logging || true;
+    }
     /**
      * 2D vector constructor.
-     *
+     * 
      * @constructor
      * @param {Number} x - X position
      * @param {Number} y - Y position
      * @this {Vector2}
      */
-    Vector2: function(x, y) {
+    Engine2D.prototype.Vector2 = function(x, y) {
         var self = this;
         x = x || 0;
         y = y || 0;
@@ -104,7 +127,7 @@ var Engine2D = {
          * @returns {Vector2} midpoint - Midpoint between this and another vector position.
          */
         self.midpoint = function(pos) {
-            return new Engine2D.Vector2((x + pos.getX()) / 2, (y + pos.getY()) / 2);
+            return new Engine2D.prototype.Vector2((x + pos.getX()) / 2, (y + pos.getY()) / 2);
         };
         /**
          * Performs a vector movement.
@@ -117,19 +140,21 @@ var Engine2D = {
             x += plusX;
             y += plusY;
         };
-    },
+    };
     /**
      * Engine2D game scene constructor.
-     *
+     * 
      * @constructor
      */
-    GameScene: function() {
-        console.log("Engine2D v" + Engine2D.VERSION + ".");
+    Engine2D.prototype.GameScene = function() {
+        if (_logging) {
+            console.log("Engine2D v" + _version + ".");
+        }
         var self = this;
         self.objects = {};
-        for (var i in Engine2D.EXTENSIONS) {
-            Engine2D.EXTENSIONS[i].exec();
-            console.log("Engine2D loaded " + Engine2D.EXTENSIONS[i].extensionName + " v" + Engine2D.EXTENSIONS[i].version + ", by " + Engine2D.EXTENSIONS[i].author + ".");
+        for (var i in _ext) {
+            _ext[i].exec();
+            console.log("Engine2D loaded " + _ext[i].extensionName + " v" + _ext[i].version + ", by " + _ext[i].author + ".");
         }
         /**
          * Checks whether a game object ID is valid or not.
@@ -157,14 +182,15 @@ var Engine2D = {
          */
         self.addObject = function(gameObject) {
             var pass;
-            for (var i in Engine2D.TYPE) {
-                if (gameObject.type == Engine2D.TYPE[i]) pass = true;
+            for (var i in _types) {
+                if (gameObject.type == _types[i]) pass = true;
             }
             if (!!pass) {
                 self.objects[gameObject.id] = gameObject;
                 return gameObject.id;
-            } else
-                throw new TypeError("\"" + gameObject.type + "\" is not a valid Engine2D game object type.");
+            }
+            else
+                throw new TypeError("\"" + gameObject.type + "\" is not a valid game object type.");
         };
         /**
          * Disables a game object.
@@ -202,7 +228,7 @@ var Engine2D = {
             else
                 throw new ReferenceError("Object \"" + objectId + "\" either doesn't exist, or hasn't been added to the scene.");
         };
-    },
+    };
     /**
      * Engine2D rectangle constructor.
      *
@@ -215,17 +241,18 @@ var Engine2D = {
      * @param {Number} options.height - Desired height of the object.
      * @param {Vector2} options.position - Desired position of the object.
      */
-    Rect: function(options) {
+    Engine2D.prototype.Rect = function(options) {
         var self = this;
         options = options || {};
-        self.id = options.id || Engine2D.randomID();
-        self.type = Engine2D.TYPE.RECT;
+        self.id = options.id || _randomId();
+        self.type = _types.RECT;
         self.alive = options.alive || true;
         self.size = {}, self.position = {};
         self.size.width = options.width || 0;
         self.size.height = options.height || 0;
-        self.position = options.position || new Engine2D.Vector2(0, 0);
-    },
+        self.position = options.position || new Engine2D.prototype.Vector2(0, 0);
+        _IDs[self.id] = true;
+    };
     /**
      * Engine2D circle constructor.
      *
@@ -237,43 +264,17 @@ var Engine2D = {
      * @param {Number} options.radius - Desired radius of the object.
      * @param {Vector2} options.position - Desired position of the object.
      */
-    Circle: function(options) {
+    Engine2D.prototype.Circle = function(options) {
         var self = this;
         options = options || {};
-        self.id = options.id || Engine2D.randomID();
-        self.type = Engine2D.TYPE.CIRCLE;
+        self.id = options.id || _randomId();
+        self.type = _types.CIRCLE;
         self.alive = options.alive || true;
         self.size = {}, self.position = {};
         self.size.radius = options.radius || 0;
-        self.position = options.position || new Engine2D.Vector2(0, 0);
-    },
-    /**
-     * Used to generate random object IDs for Engine2D game objects.
-     *
-     * @returns {string} - Randomly generated object ID.
-     */
-    randomID: function() {
-        var opts = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", out = "";
-        var i = 0;
-        while (i < 5) {
-            i++;
-            out += opts[Math.floor(Math.random() * opts.length)];
-        }
-        return out;
-    },
-    /**
-     * Returns the next available type address (Engine2D.TYPE[x]).
-     * 
-     * @returns {integer} - Next available type address.
-     */
-    nextAvailableTypeAddress: function() {
-        var addr = 0;
-        for (var i in Engine2D.TYPE) {
-            addr = Engine2D.TYPE[i];
-        }
-        addr++;
-        return addr;
-    },
+        self.position = options.position || new Engine2D.prototype.Vector2(0, 0);
+        _IDs[self.id] = true;
+    };
     /**
      * Engine2D extension registrar. Used to register a new Engine2D extension.
      * 
@@ -284,17 +285,18 @@ var Engine2D = {
      * @param {function} options.exec - Function to be executed on extension load. Typically this will define some prototypes to Engine2D.GameScene, or other constructors.
      * @returns {string} id - Extension ID.
      */
-    registerExtension: function(options) {
+    Engine2D.prototype.registerExtension = function(options) {
         var ext = {};
         options = options || {};
-        ext.id = "ext" + Engine2D.randomID();
+        ext.id = "ext" + _randomId();
         ext.extensionName = options.extensionName || ext.id;
         ext.author = options.author || "an anonymous contributor";
         ext.version = options.version || "0.0.0";
         ext.exec = options.exec || null;
-        Engine2D.EXTENSIONS[ext.id] = ext;
+        _ext[ext.id] = ext;
+        _IDs[ext.id] = true;
         return ext.id;
-    }
-};
-
-typeof module !==  "undefined" ? module.exports = Engine2D : window.Engine2D = Engine2D;
+    };
+    return Engine2D;
+})();
+typeof module !== "undefined" ? module.exports = Engine2D : window.Engine2D = Engine2D;
