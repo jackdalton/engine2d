@@ -1,5 +1,5 @@
 /**
- * Engine2D game engine v1.1.2
+ * Engine2D game engine v2.0.0
  * License: http://git.io/vlp11
  * @author jackdalton
  */
@@ -10,7 +10,7 @@
  * @namespace
  */
 var Engine2D = {
-    VERSION: "1.1.2",
+    VERSION: "2.0.0",
     TYPE: {
         RECT: 1,
         CIRCLE: 2
@@ -26,17 +26,34 @@ var Engine2D = {
      */
     Vector2: function(x, y) {
         var self = this;
-        x = x || 0;
-        y = y || 0;
+        x = (typeof(x) == "number") ? x : 0;
+        y = (typeof(y) == "number") ? y : 0;
         /**
          * Sets the vector position.
          *
          * @memberof Engine2D.Vector2
          * @param {Vector2} position - Desired vector position
          */
-        self.setPos = function(position) {
-            x = position.getX();
-            y = position.getY();
+        self.setPosition = function(position) {
+            if (typeof(position) == "object") {
+                x = position.x || x;
+                y = position.y || y;
+                return {
+                    x: x,
+                    y: y
+                };
+            } else {
+                if (typeof(arguments[0]) == "number" && typeof(arguments[1]) == "number") {
+                    x = arguments[0] || x;
+                    y = arguments[1] || y;
+                } else {
+                    throw new TypeError("Vector2 position can only be an object or two numbers.");
+                }
+            }
+            return {
+                x: x,
+                y: y
+            };
         };
         /**
          * Sets the vector's X position.
@@ -107,15 +124,38 @@ var Engine2D = {
             return new Engine2D.Vector2((x + pos.getX()) / 2, (y + pos.getY()) / 2);
         };
         /**
-         * Performs a vector movement.
-         *
+         * Performs a translation to another position.
+         * 
          * @memberof Engine2D.Vector2
-         * @param {Number} plusX - X value to add to vector x position.
-         * @param {Number} plusY - Y value to add to vector y position.
+         * @param {Object} to - Position to translate the vector to.
+         * @returns {Object} pos - Position the vector was translated to.
          */
-        self.vectorMovement = function(plusX, plusY) {
-            x += plusX;
-            y += plusY;
+        self.translate = function(to) {
+            if (typeof(to) == "object") {
+                x += (to.x || 0);
+                y += (to.y || 0);
+            } else if (typeof(arguments[0]) == "number" && typeof(arguments[1]) == "number") {
+                x += (arguments[0] || 0);
+                y += (arguments[1] || 0);
+            } else {
+                throw new TypeError("Vector2 must be translated using an object or two numbers");
+            }
+        };
+        /**
+         * Rotates a vector by the given theta.
+         * 
+         * @param {number} theta - Theta to rotate the vector by.
+         * @returns {Object} coordinates - Rotated coordinates
+         */
+        self.rotate = function(theta) {
+            if (typeof(theta) == "number") {
+                return {
+                    x: +(x * Math.cos(theta) - y * Math.sin(theta)).toPrecision(4),
+                    y: +(x * Math.sin(theta) + y * Math.cos(theta)).toPrecision(4)
+                };
+            } else {
+                throw new TypeError("Vector2 must be rotated using a number");
+            }
         };
     },
     /**

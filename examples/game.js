@@ -1,5 +1,4 @@
 // uses engine2d.ctx.js extension
-
 (function() {
     var scene = new Engine2D.GameScene();
     var ctx = document.getElementById("cnv").getContext("2d");
@@ -42,19 +41,19 @@
         (function(d) {
             if (37 in keysDown) {
                 // left
-                scene.objects.player.position.vectorMovement(-(180 * d), 0);
+                scene.objects.player.position.translate(-(180 * d), 0);
             }
             if (38 in keysDown) {
                 // up
-                scene.objects.player.position.vectorMovement(0, -(180 * d));
+                scene.objects.player.position.translate(0, -(180 * d));
             }
             if (39 in keysDown) {
                 // right
-                scene.objects.player.position.vectorMovement(180 * d, 0);
+                scene.objects.player.position.translate(180 * d, 0);
             }
             if (40 in keysDown) {
                 // down
-                scene.objects.player.position.vectorMovement(0, 180 * d);
+                scene.objects.player.position.translate(0, 180 * d);
             }
         })(delta / 1000);
         renderer.clear();

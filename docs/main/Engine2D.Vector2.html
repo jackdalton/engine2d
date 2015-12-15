@@ -316,7 +316,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line96">line 96</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line113">line 113</a>
     </li></ul></dd>
     
 
@@ -420,7 +420,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line83">line 83</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -524,7 +524,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line65">line 65</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line82">line 82</a>
     </li></ul></dd>
     
 
@@ -628,7 +628,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line74">line 74</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line91">line 91</a>
     </li></ul></dd>
     
 
@@ -781,7 +781,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line106">line 106</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line123">line 123</a>
     </li></ul></dd>
     
 
@@ -834,7 +834,7 @@
 
     
 
-    <h4 class="name" id=".self.setPos"><span class="type-signature">(static) </span>self.setPos<span class="signature">(position)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".self.setPosition"><span class="type-signature">(static) </span>self.setPosition<span class="signature">(position)</span><span class="type-signature"></span></h4>
 
     
 
@@ -1065,7 +1065,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line47">line 47</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line64">line 64</a>
     </li></ul></dd>
     
 
@@ -1196,7 +1196,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line56">line 56</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -1227,14 +1227,14 @@
 
     
 
-    <h4 class="name" id=".self.vectorMovement"><span class="type-signature">(static) </span>self.vectorMovement<span class="signature">(plusX, plusY)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".self.translate"><span class="type-signature">(static) </span>self.translate<span class="signature">(to)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
 
 
 <div class="description">
-    Performs a vector movement.
+    Performs a translation to another position.
 </div>
 
 
@@ -1270,13 +1270,13 @@
 
         <tr>
             
-                <td class="name"><code>plusX</code></td>
+                <td class="name"><code>to</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">Object</span>
 
 
             
@@ -1286,30 +1286,7 @@
 
             
 
-            <td class="description last">X value to add to vector x position.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>plusY</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Y value to add to vector y position.</td>
+            <td class="description last">Position to translate the vector to.</td>
         </tr>
 
     
@@ -1350,7 +1327,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line116">line 116</a>
+        <a href="engine2d.js.html">engine2d.js</a>, <a href="engine2d.js.html#line133">line 133</a>
     </li></ul></dd>
     
 
@@ -1373,6 +1350,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    pos - Position the vector was translated to.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1398,7 +1397,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Dec 06 2015 22:38:57 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Dec 15 2015 17:42:41 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>
