@@ -21,7 +21,7 @@ describe("Engine2D", function() {
         });
         it("should have settable coordinates", function() {
             var pos = new Engine2D.Vector2(0, 0);
-            pos.setPos(new Engine2D.Vector2(5, 10));
+            pos.setPosition(new Engine2D.Vector2(5, 10));
             assert.equal(pos.getX(), 5);
             assert.equal(pos.getY(), 10);
             pos.setX(3);
@@ -84,7 +84,7 @@ describe("Engine2D minified", function() {
         });
         it("should have settable coordinates", function() {
             var pos = new Engine2DM.Vector2(0, 0);
-            pos.setPos(new Engine2DM.Vector2(5, 10));
+            pos.setPosition(new Engine2DM.Vector2(5, 10));
             assert.equal(pos.getX(), 5);
             assert.equal(pos.getY(), 10);
             pos.setX(3);
