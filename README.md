@@ -1,4 +1,4 @@
-# Engine2D [![Build Status](https://travis-ci.org/jackdalton/engine2d.svg?branch=master)](https://travis-ci.org/jackdalton/engine2d) [![Version](https://img.shields.io/github/release/jackdalton/engine2d.svg)](https://github.com/jackdalton/engine2d/releases/latest) [![License](https://img.shields.io/github/license/jackdalton/engine2d.svg)](https://github.com/jackdalton/engine2d/blob/master/LICENSE)
+# Engine2D [![Build Status](https://travis-ci.org/jackdalton/engine2d.svg?branch=master)](https://travis-ci.org/jackdalton/engine2d) [![Version](http://badge-server.herokuapp.com/github/release/jackdalton/engine2d.svg)](https://github.com/jackdalton/engine2d/releases/latest) [![License](http://badge-server.herokuapp.com/github/license/jackdalton/engine2d.svg)](https://github.com/jackdalton/engine2d/blob/master/LICENSE)
 
 [![Join the chat at https://gitter.im/jackdalton/engine2d](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jackdalton/engine2d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
