@@ -2,6 +2,9 @@
 
 [![Join the chat at https://gitter.im/jackdalton/engine2d](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jackdalton/engine2d?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+## DEPRECATED
+
+As of 21 December 2015, Engine2D is deprecated. Instead, you should use [E2D](https://github.com/jackdalton/e2d). [This blog post explains why](http://jackdalton.org/engine2d-devblog/engine2d,javascript/2015/12/21/deprecated.html).
 
 Engine2D is a highly extensible barebones game engine.
 
