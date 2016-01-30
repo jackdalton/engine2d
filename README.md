@@ -6,6 +6,8 @@
 
 As of 21 December 2015, Engine2D is deprecated. Instead, you should use [E2D](https://github.com/jackdalton/e2d). [This blog post explains why](http://jackdalton.org/engine2d-devblog/engine2d,javascript/2015/12/21/deprecated.html).
 
+==========
+
 Engine2D is a highly extensible barebones game engine.
 
 Engine2D can be used for just about any type of 2D game, with existing HTML5 canvas renderer and collision detection extensions.
